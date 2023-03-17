@@ -92,40 +92,19 @@ export default function Tab({ tabDetails }: TabProps) {
         <title>
           {tabDetails?.name
             ? `${tabDetails?.name} - ${tabDetails?.artist}`
-            : "Penultimate Guitar"}
+            : "JamBox"}
         </title>
       </Head>
       <>
-        <h1 className="text-center text-2xl my-4">
-          {tabDetails?.name} - {tabDetails?.artist}
-        </h1>
-        <div className="max-w-lg mx-auto my-4">
-          {!!tabDetails?.contributors?.length && (
-            <details>
-              <summary>{tabDetails?.contributors?.length} Contributors</summary>
-              <ul>
-                {tabDetails?.contributors?.map((c, index) => (
-                  <li key={index}>
-                    <Link href={`https://www.ultimate-guitar.com/u/${c}`}>
-                      {c}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </details>
-          )}
+        
+        
+        <div className="bg-white/100 w-full sticky top-0 ">
+          
+		  <h1 className="max-w-lg mx-auto text-2xl my-4">
+            {tabDetails?.name} - {tabDetails?.artist}
+          </h1>
 
-          {!!tabDetails?.capo && <div>Capo: Fret {tabDetails?.capo}</div>}
-          {!!tabDetails?.tuning && (
-            <div>
-              Tuning:{" "}
-              <span className="font-bold">{tabDetails?.tuning.name}</span>,{" "}
-              {tabDetails?.tuning.value}
-            </div>
-          )}
-        </div>
-        <div className="bg-white/50 w-full sticky top-0 ">
-          <div className="flex justify-between max-w-lg mx-auto my-4 gap-4 font-mono text-sm flex-wrap">
+		  <div className="flex justify-between max-w-lg mx-auto my-4 gap-4 text-sm flex-wrap">
             <div className="flex-1 flex-col text-center">
               Pin
               <div className="m-auto w-fit">
@@ -180,6 +159,33 @@ export default function Tab({ tabDetails }: TabProps) {
           fontSize={fontSize}
           transposition={tranposition}
         ></TabSheet>
+
+		<div className="max-w-lg mx-auto my-4">
+          {!!tabDetails?.contributors?.length && (
+            <details>
+              <summary>{tabDetails?.contributors?.length} Contributors</summary>
+              <ul>
+                {tabDetails?.contributors?.map((c, index) => (
+                  <li key={index}>
+                    <Link href={`https://www.ultimate-guitar.com/u/${c}`}>
+                      {c}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
+
+          {!!tabDetails?.capo && <div>Capo: Fret {tabDetails?.capo}</div>}
+          {!!tabDetails?.tuning && (
+            <div>
+              Tuning:{" "}
+              <span className="font-bold">{tabDetails?.tuning.name}</span>,{" "}
+              {tabDetails?.tuning.value}
+            </div>
+          )}
+        </div>
+
       </>
     </div>
   );

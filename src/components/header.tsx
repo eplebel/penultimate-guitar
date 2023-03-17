@@ -1,18 +1,22 @@
 import Link from "next/link";
 import SearchBox from "./searchbox";
 
-//	Need to add container and than apply:	flex justify-center items-center
-	// then replace Penultimate Guitar w/ JB logo
-	// then add hamburger menubar
-	// then attempt to add toggle switch 
+// using etiennelebel.com path as workaround 
+// to routing issue w/ relative path to public\icons
+
+// Removed (for now) added TOGGLE button given it was also showing up on home screen
+// <img src="https://etiennelebel.com/jb/icons/toggle.png" className="max-w-[35px] ml-3" />
+
 export default function Header() {
   return (
-    
-	<>
-      <Link href="/">
-        <h1 className="m-auto w-fit">Penultimate Guitar</h1>
-      </Link>
-      <SearchBox />
-    </>
+	<div className="max-w-lg mx-auto my-4">
+		<div className="flex space-x-4 justify-center items-center">
+		<Link href="/">
+			<img src="https://etiennelebel.com/jb/icons/jb-icon-d3.png" className="max-w-[35px]" />
+		</Link>
+		
+		<SearchBox />
+		</div>
+	</div>
   );
 }
