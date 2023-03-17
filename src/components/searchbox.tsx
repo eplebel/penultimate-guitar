@@ -22,7 +22,7 @@ export default function SearchBox() {
         >
           Search
         </label>
-        <div className="relative max-w-2xl mx-auto my-4">
+        <div className="relative max-w-[255px] mx-auto my-2">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg
               aria-hidden="true"
@@ -45,7 +45,7 @@ export default function SearchBox() {
             id="default-search"
             name="url"
             className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-            placeholder="Song name or Chords URL..."
+            placeholder=""
             required
           />
           <button
