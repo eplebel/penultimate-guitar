@@ -8,7 +8,7 @@ const Page: NextPageWithLayout = () => {
   return (
     <>
       <Head>
-        <title>JamBox | Keep Playin'! </title>
+        <title>JamBox | Keep Playin&apos;! </title>
       </Head>
       <div className="max-w-xl mx-auto">
         <PinnedTabs />
