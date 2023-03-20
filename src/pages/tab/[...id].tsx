@@ -22,7 +22,7 @@ export default function Tab({ tabDetails }: TabProps) {
   const router = useRouter();
   const { id } = router.query;
   const plainTab = tabDetails.tab;
-  const [fontSize, setFontSize] = useState(12);
+  const [fontSize, setFontSize] = useState(14);
   const [tranposition, setTranposition] = useState(0);
   const [scrollSpeed, setScrollSpeed] = useState(0);
   const scrollinterval = useRef<NodeJS.Timer>();
@@ -98,15 +98,14 @@ export default function Tab({ tabDetails }: TabProps) {
       <>
         
         
-        <div className="bg-white/100 w-full sticky top-0 ">
+        <div className="bg-white/100 w-full sticky top-0 border-b border-gray mb-2 px-4">
           
-		  <h1 className="max-w-lg mx-auto text-2xl my-4">
+		  <h1 className="max-w-lg mx-auto text-2xl mt-4 mb-2">
             {tabDetails?.name} - {tabDetails?.artist}
           </h1>
 
-		  <div className="flex justify-between max-w-lg mx-auto my-4 gap-4 text-sm flex-wrap">
+		  <div className="flex justify-between max-w-lg mx-auto my-2 gap-4 text-xs flex-wrap text-gray-400 hover:text-black">
             <div className="flex-1 flex-col text-center">
-              Pin
               <div className="m-auto w-fit">
                 <ToolbarButton
                   fn={() =>
@@ -117,21 +116,20 @@ export default function Tab({ tabDetails }: TabProps) {
                   icon={isPinned(tabDetails) ? "❌" : "📌"}
                 />
               </div>
+			  Pin
             </div>
 
             <div className="flex-1 flex-col text-center">
-              Font size
+              
               <div className="flex gap-1 m-auto w-fit">
                 <ToolbarButton fn={() => setFontSize(fontSize - 2)} icon="➖" />
                 <ToolbarButton fn={() => setFontSize(fontSize + 2)} icon="➕" />
               </div>
+			  Font size
             </div>
 
             <div className="flex-1 flex-col text-center">
-              <p>
-                Transpose
-                {tranposition === 0 || ` (${formattedTransposition()})`}
-              </p>
+              
               <div className="flex gap-1 m-auto w-fit">
                 <ToolbarButton
                   fn={() => setTranposition(tranposition - 1)}
@@ -142,14 +140,19 @@ export default function Tab({ tabDetails }: TabProps) {
                   icon="➕"
                 />
               </div>
+			  <p>
+                Transpose
+                {tranposition === 0 || ` (${formattedTransposition()})`}
+              </p>
             </div>
 
             <div className="flex-1 flex-col text-center">
-              Autoscroll
+              
               <div className="flex gap-1 m-auto w-fit">
                 <ToolbarButton fn={() => changeScrolling("down")} icon="➖" />
                 <ToolbarButton fn={() => changeScrolling("up")} icon="➕" />
               </div>
+			  Autoscroll
             </div>
           </div>
         </div>
@@ -160,7 +163,7 @@ export default function Tab({ tabDetails }: TabProps) {
           transposition={tranposition}
         ></TabSheet>
 
-		<div className="max-w-lg mx-auto my-4">
+		<div className="max-w-lg mx-auto my-4 px-4 text-sm">
           {!!tabDetails?.contributors?.length && (
             <details>
               <summary>{tabDetails?.contributors?.length} Contributors</summary>

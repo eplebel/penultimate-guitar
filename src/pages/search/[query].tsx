@@ -40,7 +40,7 @@ export default function Tab() {
       <Head>
         <title>{`Search`}</title>
       </Head>
-      <h1 className="text-center text-2xl my-4">Search Results</h1>
+      <h1 className="text-center text-xl my-4">Search Results (Chords only)</h1>
       {isLoading ? (
         <LoadingSpinner />
       ) : results.length > 0 ? (

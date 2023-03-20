@@ -9,13 +9,13 @@ import SearchBox from "./searchbox";
 
 export default function Header() {
   return (
-	<div className="max-w-lg mx-auto my-4">
+	<div className="max-w-lg mx-auto my-4 px-4">
 		<div className="flex space-x-4 justify-center items-center">
-		<Link href="/">
-			<img src="https://etiennelebel.com/jb/icons/jb-icon-d3.png" className="max-w-[35px]" />
-		</Link>
-		
-		<SearchBox />
+			<Link href="/">
+				<img src="https://etiennelebel.com/jb/icons/jb-icon-d3.png" className="max-w-[35px]" />
+			</Link>
+			
+			<SearchBox />
 		</div>
 	</div>
   );
