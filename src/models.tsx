@@ -42,7 +42,7 @@ export type SearchResult = {
   tab_url: string;
 };
 
-export const blacklist = ["Pro", "Video", "Official"];
+export const blacklist = ["Pro", "Video", "Official", "Power", "Drum Tabs", "Bass Tabs", "Tabs", "Ukulele Chords"];
 
 export type ContributorObj = {
   userid: string;
