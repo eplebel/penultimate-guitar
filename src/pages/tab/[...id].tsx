@@ -101,12 +101,9 @@ export default function Tab({ tabDetails }: TabProps) {
         <div className="bg-white/100 w-full sticky top-0 border-b border-gray mb-2 px-4">
           
 		  <h1 className="max-w-lg mx-auto text-xl mt-4 mb-2 flex">
-		  	<div className="font-medium">	
-				{tabDetails?.name} 
-			</div>
-			<div className="ml-1">
-				 - {tabDetails?.artist}
-			</div>
+		 	<div className="inline-block">
+              <p className="font-bold inline-block">{tabDetails?.name}</p> - {tabDetails?.artist} 
+            </div>
           </h1>
 
 		  <div className="flex justify-between max-w-lg mx-auto -mt-2 mb-2 gap-4 text-xs flex-wrap text-gray-400 hover:text-black items-center">
