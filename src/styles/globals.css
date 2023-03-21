@@ -65,3 +65,28 @@ summary h1 {
     transform: rotate(360deg);
   }
 }
+
+.ripple {
+	position: relative;
+	-webkit-transition-duration: 1.2s; /* Safari */
+	transition-duration: 1.2s;
+	overflow: hidden;
+  }
+  .ripple:after {
+	content: "";
+	background: #90EE90;
+	display: block;
+	position: absolute;
+	padding-top: 300%;
+	padding-left: 350%;
+	margin-left: -20px!important;
+	margin-top: -120%;
+	opacity: 0;
+	transition: all 0.8s
+  } 
+  .ripple:active:after {
+	padding: 0;
+	margin: 0;
+	opacity: 1;
+	transition: 0s 
+}

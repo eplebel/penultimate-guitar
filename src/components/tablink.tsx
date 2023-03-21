@@ -15,7 +15,7 @@ export default function TabLink(props: TabLinkProps) {
         href={`/tab/${props.taburl}`}
         className="w-full text-black no-underline"
       >
-        <div className="border-grey-500 border-[1px] p-2 rounded-xl  hover:shadow-md transition ease-in-out flex justify-between">
+        <div className="border-grey-500 border-[1px] p-3 rounded-xl hover:shadow-md hover:bg-gray-100 transition ease-in-out flex justify-between ripple">
           <div>
             {props.name} - {props.artist}
           </div>
