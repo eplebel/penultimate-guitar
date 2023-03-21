@@ -100,12 +100,26 @@ export default function Tab({ tabDetails }: TabProps) {
         
         <div className="bg-white/100 w-full sticky top-0 border-b border-gray mb-2 px-4">
           
-		  <h1 className="max-w-lg mx-auto text-2xl mt-4 mb-2">
-            {tabDetails?.name} - {tabDetails?.artist}
+		  <h1 className="max-w-lg mx-auto text-xl mt-4 mb-2 flex">
+		  	<div className="font-medium">	
+				{tabDetails?.name} 
+			</div>
+			<div className="ml-1">
+				 - {tabDetails?.artist}
+			</div>
           </h1>
 
-		  <div className="flex justify-between max-w-lg mx-auto my-2 gap-4 text-xs flex-wrap text-gray-400 hover:text-black">
-            <div className="flex-1 flex-col text-center">
+		  <div className="flex justify-between max-w-lg mx-auto -mt-2 mb-2 gap-4 text-xs flex-wrap text-gray-400 hover:text-black items-center">
+            
+		  	{!!tabDetails?.capo && 
+			 <div className="flex-1 flex-col text-center">
+               <div className="w-fit italic">		
+		    		CAPO {tabDetails?.capo}
+			  </div>
+            </div>
+			}
+
+			<div className="flex-1 flex-col text-center">
               <div className="m-auto w-fit">
                 <ToolbarButton
                   fn={() =>
@@ -116,44 +130,34 @@ export default function Tab({ tabDetails }: TabProps) {
                   icon={isPinned(tabDetails) ? "❌" : "📌"}
                 />
               </div>
-			  Pin
             </div>
 
-            <div className="flex-1 flex-col text-center">
-              
+            <div className="flex-1 flex-col text-center text-base">
               <div className="flex gap-1 m-auto w-fit">
-                <ToolbarButton fn={() => setFontSize(fontSize - 2)} icon="➖" />
-                <ToolbarButton fn={() => setFontSize(fontSize + 2)} icon="➕" />
+                <div className="text-[10px]" >
+					<ToolbarButton fn={() => setFontSize(fontSize - 2)} icon="A" />
+				</div>
+                <ToolbarButton fn={() => setFontSize(fontSize + 2)} icon="A" />
               </div>
-			  Font size
             </div>
 
-            <div className="flex-1 flex-col text-center">
-              
-              <div className="flex gap-1 m-auto w-fit">
+            <div className="flex-1 flex-col text-center text-base">
+              <div className="flex gap-1 m-auto w-fit items-center">
                 <ToolbarButton
                   fn={() => setTranposition(tranposition - 1)}
-                  icon="➖"
+                  icon="♭"
                 />
                 <ToolbarButton
                   fn={() => setTranposition(tranposition + 1)}
-                  icon="➕"
+                  icon="♯"
                 />
+				<div className="text-xs">
+					{tranposition === 0 || ` (${formattedTransposition()})`}
+				</div>
               </div>
-			  <p>
-                Transpose
-                {tranposition === 0 || ` (${formattedTransposition()})`}
-              </p>
             </div>
 
-            <div className="flex-1 flex-col text-center">
-              
-              <div className="flex gap-1 m-auto w-fit">
-                <ToolbarButton fn={() => changeScrolling("down")} icon="➖" />
-                <ToolbarButton fn={() => changeScrolling("up")} icon="➕" />
-              </div>
-			  Autoscroll
-            </div>
+            
           </div>
         </div>
 
@@ -163,9 +167,10 @@ export default function Tab({ tabDetails }: TabProps) {
           transposition={tranposition}
         ></TabSheet>
 
-		<div className="max-w-lg mx-auto my-4 px-4 text-sm">
-          {!!tabDetails?.contributors?.length && (
-            <details>
+		
+          {!!tabDetails?.contributors?.length && 
+		  <div className="max-w-lg mx-auto mt-4 mb-2 px-4 text-sm border-gray border-t py-2">
+            <details open>
               <summary>{tabDetails?.contributors?.length} Contributors</summary>
               <ul>
                 {tabDetails?.contributors?.map((c, index) => (
@@ -177,17 +182,18 @@ export default function Tab({ tabDetails }: TabProps) {
                 ))}
               </ul>
             </details>
-          )}
+          </div>
+		  }
 
-          {!!tabDetails?.capo && <div>Capo: Fret {tabDetails?.capo}</div>}
-          {!!tabDetails?.tuning && (
-            <div>
-              Tuning:{" "}
-              <span className="font-bold">{tabDetails?.tuning.name}</span>,{" "}
-              {tabDetails?.tuning.value}
-            </div>
-          )}
-        </div>
+          
+          
+		  {!!tabDetails?.tuning && 
+		  <div className="max-w-lg mx-auto mb-4 pt-2 px-4 text-sm border-gray border-t"> 
+			Tuning:{" "}
+			<span className="font-bold">{tabDetails?.tuning.name}</span>,{" "}
+			{tabDetails?.tuning.value}
+		  </div>
+		  }
 
       </>
     </div>
