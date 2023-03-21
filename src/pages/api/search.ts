@@ -42,7 +42,9 @@ async function getSearch(URL: string): Promise<SearchResult[]> {
     .filter((r) => r.tab_access_type === "public")
     .filter((r) => !blacklist.includes(r.type))
     .map((r) => ({ ...r, tab_url: r.tab_url.split("/tab/")[1] }))
-    .sort((a: SearchResult, b: SearchResult) => b.rating - a.rating);
+	//.sort((a: SearchResult, b: SearchResult) => b.rating - a.rating );
+	.sort((a: SearchResult, b: SearchResult) => b.rating - a.rating || a.artist_name.localeCompare(b.artist_name) );
+	// trying to sort by multiple fields, i.e., artist_name THEN by rating, still not quite working but close
   // console.log(results);
   return results;
 }
