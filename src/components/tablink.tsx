@@ -17,7 +17,7 @@ export default function TabLink(props: TabLinkProps) {
       >
         <div className="border-grey-500 border-[1px] p-3 rounded-xl hover:shadow-md hover:bg-gray-100 transition ease-in-out flex justify-between ripple">
           <div>
-            {props.name} - {props.artist}
+		  	<p className="font-medium inline-block">{props.name} </p> - {props.artist}
           </div>
         </div>
       </Link>
@@ -25,7 +25,7 @@ export default function TabLink(props: TabLinkProps) {
         onClick={() =>
           props.pinned ? removePinnedTab(props) : addPinnedTab(props)
         }
-        className="flex items-center px-1 text-md text-lg border-grey-500 rounded-xl hover:shadow-md transition ease-in-out"
+        className="flex items-center px-1 text-sm border-grey-500 rounded-xl hover:shadow-md transition ease-in-out"
       >
         {props.pinned ? "❌" : "📌"}
       </button>

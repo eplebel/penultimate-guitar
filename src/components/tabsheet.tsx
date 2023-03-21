@@ -78,8 +78,7 @@ export default function TabSheet({
   // console.log(formattedTab);
 
   return (
-    //<div className="tab m-auto w-fit max-w-[100%]">
-	<div className="tab max-w-lg mx-auto font-['Roboto_Mono'] px-4">
+	<div className="tab max-w-lg mx-auto font-['Roboto_Mono'] px-4 mb-4">
       <pre
         className="max-w-[100%] whitespace-pre-wrap"
         style={{ fontSize: `${fontSize}px` }}
