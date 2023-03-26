@@ -4,8 +4,8 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head></Head>
-      <body className="px-2">
-        <div className="max-w-lg mx-auto my-2 rounded-lg border-[1px] border-gray" >
+      <body className="sm:px-2">
+        <div className="max-w-lg mx-auto my-2 rounded-lg sm:border-[1px] sm:border-gray" >
 			<Main />
         	<NextScript />
 		</div>

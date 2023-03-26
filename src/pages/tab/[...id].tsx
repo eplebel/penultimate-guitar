@@ -108,13 +108,13 @@ export default function Tab({ tabDetails }: TabProps) {
 
 		  <div className="flex justify-between max-w-lg mx-auto -mt-2 mb-2 gap-4 text-xs flex-wrap text-gray-400 hover:text-black items-center">
             
-		  	{!!tabDetails?.capo && 
-			 <div className="flex-1 flex-col text-center">
+			<div className="flex-1 flex-col text-center">
+			 {!!tabDetails?.capo && ( 	
                <div className="w-fit italic">		
 		    		CAPO {tabDetails?.capo}
 			  </div>
-            </div>
-			}
+			)}
+			</div>
 
 			<div className="flex-1 flex-col text-center">
               <div className="m-auto w-fit">
@@ -130,7 +130,7 @@ export default function Tab({ tabDetails }: TabProps) {
             </div>
 
             <div className="flex-1 flex-col text-center text-base">
-              <div className="flex gap-1 m-auto w-fit">
+              <div className="flex m-auto w-fit">
                 <div className="text-[10px]" >
 					<ToolbarButton fn={() => setFontSize(fontSize - 2)} icon="A" />
 				</div>
@@ -139,7 +139,7 @@ export default function Tab({ tabDetails }: TabProps) {
             </div>
 
             <div className="flex-1 flex-col text-center text-base">
-              <div className="flex gap-1 m-auto w-fit items-center">
+              <div className="flex m-auto items-center">
                 <ToolbarButton
                   fn={() => setTranposition(tranposition - 1)}
                   icon="♭"
